@@ -76,14 +76,14 @@ namespace RawInput_dll
 
                         if (rid.dwType == DeviceType.RimTypekeyboard || rid.dwType == DeviceType.RimTypeHid)
 						{
-							//var deviceDesc = Win32.GetDeviceDescription(deviceName);
+							var deviceDesc = Win32.GetDeviceDescription(deviceName);
 
 							var dInfo = new KeyPressEvent
 							{
 								DeviceName = Marshal.PtrToStringAnsi(pData),
 								DeviceHandle = rid.hDevice,
 								DeviceType = Win32.GetDeviceType(rid.dwType),
-								Name = string.Empty,
+								Name = deviceDesc,
 								Source = keyboardNumber++.ToString(CultureInfo.InvariantCulture)
 							};
 						   

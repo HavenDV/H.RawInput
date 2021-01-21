@@ -138,14 +138,14 @@ namespace RawInput_dll
 
                     if (rid.dwType == DeviceType.RimTypekeyboard || rid.dwType == DeviceType.RimTypeHid)
                     {
-                        //var deviceDesc = GetDeviceDescription(deviceName);
+                        var deviceDesc = GetDeviceDescription(deviceName);
 
                         var dInfo = new KeyPressEvent
                         {
                             DeviceName = Marshal.PtrToStringAnsi(pData),
                             DeviceHandle = rid.hDevice,
                             DeviceType = GetDeviceType(rid.dwType),
-                            Name = string.Empty,
+                            Name = deviceDesc,
                             Source = keyboardNumber++.ToString(CultureInfo.InvariantCulture)
                         };
 
@@ -184,25 +184,25 @@ namespace RawInput_dll
             return deviceType;
         }
 
-        //public static string GetDeviceDescription(string device)
-        //{
-        //    string deviceDesc;
-        //    try
-        //    {
-        //        var deviceKey = RegistryAccess.GetDeviceKey(device);
-        //        deviceDesc = deviceKey.GetValue("DeviceDesc").ToString();
-        //        deviceDesc = deviceDesc.Substring(deviceDesc.IndexOf(';') + 1);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        deviceDesc = "Device is malformed unable to look up in the registry";
-        //    }
-            
-        //    //var deviceClass = RegistryAccess.GetClassType(deviceKey.GetValue("ClassGUID").ToString());
-        //    //isKeyboard = deviceClass.ToUpper().Equals( "KEYBOARD" );
+        public static string GetDeviceDescription(string device)
+        {
+            string deviceDesc;
+            try
+            {
+                var deviceKey = RegistryAccess.GetDeviceKey(device);
+                deviceDesc = deviceKey.GetValue("DeviceDesc").ToString();
+                deviceDesc = deviceDesc.Substring(deviceDesc.IndexOf(';') + 1);
+            }
+            catch (Exception)
+            {
+                deviceDesc = "Device is malformed unable to look up in the registry";
+            }
 
-        //    return deviceDesc;
-        //}
+            //var deviceClass = RegistryAccess.GetClassType(deviceKey.GetValue("ClassGUID").ToString());
+            //isKeyboard = deviceClass.ToUpper().Equals( "KEYBOARD" );
+
+            return deviceDesc;
+        }
 
         //public static bool InputInForeground(IntPtr wparam)
         //{
