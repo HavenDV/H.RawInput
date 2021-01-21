@@ -4,6 +4,8 @@ using System.Globalization;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using H.Hooks.Core.Interop;
+using WeVPN.Firewall;
 
 namespace RawInput_dll
 {
@@ -16,19 +18,17 @@ namespace RawInput_dll
 		public int NumberOfKeyboards { get; private set; }
 		static InputData _rawBuffer;
 
-		public RawKeyboard(IntPtr hwnd, bool captureOnlyInForeground)
-		{
+		public RawKeyboard(IntPtr handle, bool captureOnlyInForeground)
+        {
 			var rid = new RawInputDevice[1];
 
 			rid[0].UsagePage = HidUsagePage.GENERIC;       
-			rid[0].Usage = HidUsage.Keyboard;              
+			rid[0].Usage = HidUsage.Keyboard;
             rid[0].Flags = (captureOnlyInForeground ? RawInputDeviceFlags.NONE : RawInputDeviceFlags.INPUTSINK) | RawInputDeviceFlags.DEVNOTIFY;
-			rid[0].Target = hwnd;
+			rid[0].Target = handle;
 
-			if(!Win32.RegisterRawInputDevices(rid, (uint)rid.Length, (uint)Marshal.SizeOf(rid[0])))
-			{
-				throw new InvalidOperationException("Failed to register raw input device(s).");
-			}
+            using var ridPtr = new ArrayPtr<RawInputDevice>(rid);
+			Win32.RegisterRawInputDevices(ridPtr, (uint)rid.Length, (uint)Marshal.SizeOf(rid[0])).Check();
 		}
 
 		public void EnumerateDevices()

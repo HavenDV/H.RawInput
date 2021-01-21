@@ -27,6 +27,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.RawInput.UnitTests", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.RawInput.IntegrationTests", "src\tests\H.RawInput.IntegrationTests\H.RawInput.IntegrationTests.csproj", "{AA028745-7520-4DB3-A047-9299D6FD2413}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "apps", "apps", "{279F93B8-60CC-461D-9A68-80C0466631C3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.RawInput.ConsoleApp", "src\apps\H.RawInput.ConsoleApp\H.RawInput.ConsoleApp.csproj", "{7099B56A-4C1A-44F5-8631-2DDC6ADA9FDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,10 @@ Global
 		{AA028745-7520-4DB3-A047-9299D6FD2413}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA028745-7520-4DB3-A047-9299D6FD2413}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA028745-7520-4DB3-A047-9299D6FD2413}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7099B56A-4C1A-44F5-8631-2DDC6ADA9FDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7099B56A-4C1A-44F5-8631-2DDC6ADA9FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7099B56A-4C1A-44F5-8631-2DDC6ADA9FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7099B56A-4C1A-44F5-8631-2DDC6ADA9FDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +61,7 @@ Global
 		{8C39C5CD-A8D1-4528-9FCE-0190BD515466} = {6E5BF389-3D3F-4D74-9DD0-3B199CB529C5}
 		{F2548AE2-D736-4C21-942F-55C4F592EFF2} = {9CAA231D-7BE1-46C9-ACD6-EB2E569CEBEA}
 		{AA028745-7520-4DB3-A047-9299D6FD2413} = {9CAA231D-7BE1-46C9-ACD6-EB2E569CEBEA}
+		{7099B56A-4C1A-44F5-8631-2DDC6ADA9FDA} = {279F93B8-60CC-461D-9A68-80C0466631C3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1493AEE4-9211-46E9-BFE6-8F629EAC5693}

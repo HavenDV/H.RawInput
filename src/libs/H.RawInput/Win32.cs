@@ -85,7 +85,7 @@ namespace RawInput_dll
         internal static extern uint GetRawInputDeviceList(IntPtr pRawInputDeviceList, ref uint numberDevices, uint size);
 
         [DllImport("User32.dll", SetLastError = true)]
-        internal static extern bool RegisterRawInputDevices(RawInputDevice[] pRawInputDevice, uint numberDevices, uint size);
+        internal static extern bool RegisterRawInputDevices(IntPtr pRawInputDevice, uint numberDevices, uint size);
         
         [DllImport("user32.dll", SetLastError = true)]
         internal static extern IntPtr RegisterDeviceNotification(IntPtr hRecipient, IntPtr notificationFilter, DeviceNotification flags);
