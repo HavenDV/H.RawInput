@@ -27,7 +27,7 @@ namespace RawInput_dll
 
 			if(!Win32.RegisterRawInputDevices(rid, (uint)rid.Length, (uint)Marshal.SizeOf(rid[0])))
 			{
-				throw new ApplicationException("Failed to register raw input device(s).");
+				throw new InvalidOperationException("Failed to register raw input device(s).");
 			}
 		}
 

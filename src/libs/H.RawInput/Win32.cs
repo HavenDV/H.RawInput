@@ -95,8 +95,8 @@ namespace RawInput_dll
 
         public static void DeviceAudit()
         {
-            var file = new FileStream("DeviceAudit.txt", FileMode.Create, FileAccess.Write);
-            var sw = new StreamWriter(file);
+            using var file = new FileStream("DeviceAudit.txt", FileMode.Create, FileAccess.Write);
+            using var sw = new StreamWriter(file);
 
             var keyboardNumber = 0;
             uint deviceCount = 0;
@@ -163,8 +163,6 @@ namespace RawInput_dll
                 Marshal.FreeHGlobal(pRawInputDeviceList);
 
                 sw.Flush();
-                sw.Close();
-                file.Close();
 
                 return;
             }
