@@ -5,10 +5,10 @@
   </PropertyGroup>
 
   <PropertyGroup Label="NuGet">
-    <Version>1.0.0</Version>
+    <Version>1.0.0-dev.100</Version>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <Description>Description</Description>
-    <PackageTags></PackageTags>
+    <Description>Allows to easy use Windows Raw Input API</Description>
+    <PackageTags>raw-input, windows, api</PackageTags>
   </PropertyGroup>
 
 </Project>
